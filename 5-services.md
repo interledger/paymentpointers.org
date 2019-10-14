@@ -51,3 +51,5 @@ To be compatible with Payment Pointers a payment initiation service needs to def
 Generic types like `text/html` as returned by services like Paypal.me and Square's Cash.app don't provide sufficient differentiating data for the client to determine if the method is supported.
 
 Clients MAY use a combination of the origin of the service and the content type to infer the payment method.
+
+Clients MUST support HTTP redirects as a result of `3XX` responses per [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4).
