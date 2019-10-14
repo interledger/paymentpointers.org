@@ -16,9 +16,9 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 # https://pmarsceill.github.io/just-the-docs/docs/configuration/
 
 search_enabled: true
-# aux_links:
-#    "Specification at interledger.org":
-#      - "//interledger.org/rfcs/0026-payment-pointers/"
+aux_links:
+   "Issue Tracker":
+     - "https://github.com/interledger/paymentpointers.org/issues/"
 
 # Build settings
 markdown: kramdown
