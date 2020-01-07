@@ -42,39 +42,40 @@ When making or a receiving a payment, a user passes a Payment Pointer to the cou
 
 <script src="/assets/js/paymentpointer.js"></script>
 <script>
-  document.getElementById('url-input').addEventListener('keyup', (event) => {
-    const url = event.srcElement.value
-    try {
-      if(url.length > 8) {
-        const pp = createPaymentPointer(url)
-        document.getElementById('pp-input').value = pp
-      }
-      toggleError()
-    } catch (e) {
-      toggleError(e.message)
-    }
-  })  
-  document.getElementById('pp-input').addEventListener('keyup', (event) => {
-    const pp = event.srcElement.value
-    try {
-      if(pp.length > 3) {
-        const url = resolveUrl(pp)
-        document.getElementById('url-input').value = url
-      }
-      toggleError()
-    } catch (e) {
-      toggleError(e.message)
-    }
-  })
   function toggleError(msg) {
+      const error = document.getElementById('error');
     if(msg) {
-      document.getElementById('error').innerHTML = msg
-      document.getElementById('error').classList.add('d-block')
-      document.getElementById('error').classList.remove('d-none')
+      error.innerHTML = msg;
+      error.classList.add('d-block');
+      error.classList.remove('d-none');
     } else {
-      document.getElementById('error').innerHTML = ''
-      document.getElementById('error').classList.add('d-none')
-      document.getElementById('error').classList.remove('d-block')
+      error.innerHTML = '';
+      error.classList.add('d-none');
+      error.classList.remove('d-block');
     }
   }
+  document.getElementById('url-input').addEventListener('keyup', (event) => {
+    const url = event.srcElement.value;
+    try {
+      if(url.length > 8) {
+        const pp = createPaymentPointer(url);
+        document.getElementById('pp-input').value = pp;
+      }
+      toggleError();
+    } catch (e) {
+      toggleError(e.message);
+    }
+  });  
+  document.getElementById('pp-input').addEventListener('keyup', (event) => {
+    const pp = event.srcElement.value;
+    try {
+      if(pp.length > 3) {
+        const url = resolveUrl(pp);
+        document.getElementById('url-input').value = url;
+      }
+      toggleError();
+    } catch (e) {
+      toggleError(e.message);
+    }
+  });
 </script>
