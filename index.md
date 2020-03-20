@@ -8,7 +8,7 @@ nav_order: 1
 
 **Payment Pointers** are a standardized identifier for payment accounts. In the same way that an email address provides an identifier for a mailbox in the email ecosystem a payment pointer is used by an account holder to share the details of their account with a counter-party.
 
-A Payment Pointer resolves to a URL (with the https scheme) that provides the location of a **payment initiation service** at which the counter-party can initiate a payment to or from the owner of the Payment Pointer.
+A Payment Pointer resolves to a URL (with the https scheme) that can be used to discover the [Open Payments](https://openpayments.dev) endpoints for interacting with the account. Using the [Open Payments](https://openpayments.dev) protocol the counter-party can initiate a payment to or from the owner of the Payment Pointer.
 
 <div class="mx-auto d-flex" style="flex: 1 100%; flex-wrap: wrap">
   <div class="d-flex" style="flex: 1 auto;">
@@ -28,15 +28,17 @@ A Payment Pointer resolves to a URL (with the https scheme) that provides the lo
 
 Payment Pointers start with a `$` character to distinguish them from other identifiers and make it obvious that they are related to payments. To convert a Payment Pointer to a URL the `$` is replaced with the standard prefix of a secure URL, `https://`.
 
-To accommodate short and easy to transcribe Payment Pointers some additional transformations are applied if the pointer has no path. If path of the transformed URL is empty or equal to `/` it is given the path `/.well-known/pay`. This accommodates the use case of origins that wish to host payment initiation services using a domain that also hosts other services (such as a website).
-
-Payment Pointers don't contain query strings or fragments, however payment initiation services MAY define standard parameters that can be used by a client when connecting to the payment initiation service endpoint.
+Payment Pointers don't contain query strings or fragments, however [Open Payments](https://openpayments.dev) MAY define standard parameters that can be used by a client when connecting to an [Open Payments](https://openpayments.dev) service endpoint.
 
 [More details...](/syntax-resolution)
 
 ### Flow
 
-When making or a receiving a payment, a user passes a Payment Pointer to the counter-party who resolves the corresponding URL and connects to the payment initiation service at that location. The counter-party discovers which payment methods are supported by the payment initiation service through Content-Type negotiation and then initiates the payment interacting with the user as required.
+When making or a receiving a payment, a user passes a Payment Pointer to the counter-party who resolves the corresponding URL.
+
+For most use cases the counter-party will extract the origin from the URL and append the path `/.well-known/open-payments` to form the URL of the [Open Payments](https://openpayments.dev) server meta-data endpoint.
+
+To avoid unnecessary network requests when doing [Web Monetization](https://webmonetization.org) the client skips this step and uses the Payment Pointer URL as the Web Monetization endpoint. 
 
 [More details...](/flow)
 

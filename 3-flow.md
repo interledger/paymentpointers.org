@@ -12,9 +12,13 @@ The counter-party's client then uses this Payment Pointer as described below to 
 
 This is analogous to how a user may provide a credit card number to a merchant to make a payment online, or provide their bank account details to a payer to receive a payment. However, in the case of Payment Pointers the pointer and the services are loosely coupled so a variety of service types could be discovered and payments can be both pushed and pulled from the user's account initiated via the same Payment Pointer.
 
-### Step 1: Resolve Payment Initiation Service URL
+### Step 1: Resolve Open Payments Server Meta-Data URL
 
-The first step the client performs is to resolve the **payment initiation service** URL from the Payment Pointer using the [rules](/syntax-resolution) defined in this specification.
+The first step the client performs is to resolve the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax-resolution) defined in this specification.
+
+To discover the Open Payments service endpoints for interacting with the account, the client extracts the origin from the Payment Pointer URL and appends the path `/.well-known/open-payments` to get the server meta-data document URL. 
+
+If the client is attempting to send an unsolicited payment to the owner of the Payment Pointer (e.g. when sending Web Monetization payments) they may skip fetching the Open Payments server meta-data and immediately fetch STREAM credentials to make the payment from the Payment Pointer URL. 
 
 <div class="mx-auto d-flex" style="flex: 1 100%; flex-wrap: wrap">
   <div class="d-flex" style="flex: 1 auto;">
@@ -30,41 +34,23 @@ The first step the client performs is to resolve the **payment initiation servic
   <label id="error" class="label label-red mt-2 d-none mx-auto"></label>
 </div>
 
-### Step 2: Discover Available Payment Methods
+### Step 2: Discover Open Payments Endpoints
 
-The client then uses the HTTP protocol to query the resolved **payment initiation service** URL and discover the payment methods supported by the service at that location.
-
-The client does this by issuing a an HTTP GET to the URL and specifying the content types of the payment method responses it accepts in the `Accept` header.
+The client then uses the HTTP protocol to query the resolved **Open Payments server meta-data** URL and discover the Open Payments services endpoints.
 
 The resolved endpoint MAY redirect the client to another URL but the client MUST ensure it affords the sender an opportunity to verify both the originally resolved and ultimate endpoint hosts.
 
 #### Example:
 
 ```http
-GET /.well-known/pay HTTP/1.1
+GET /.well-known/open-payments HTTP/1.1
 Host: alice.wallet.example
-Accept: application/spsp+json, application/otherprotocolformat
+Accept: application/json
 ```
-
-If the service supports multiple payment methods it should respond using the type that it prefers and offer alternatives via `Link` headers using the `rel` type `https://paymentpointers.org` and the appropriate `type` parameter.
-
-
-#### Example:
-
-```http
-HTTP/1.1 200 OK
-Content-Type: application/spsp+json
-Connection: keep-alive
-Link: </other>; rel="https://paymentpointers.org"; type="application/otherprotocolformat"
-```
-
-In the example above, the default service response uses the Simple Payment Setup Protocol as indicated by the `Content-Type: application/spsp+json` header. However, an alternative endpoint is available at the relative URL `/other` supporting the `application/otherprotocolformat`.
-
-The client MAY probe the service endpoint using a `HEAD` request instead of a `GET` to avoid downloading the response content.
 
 ### Step 3: Initiate Payment
 
-Having discovered the available payment methods, the client initiates the payment using one of the supported protocols.
+Having discovered the available endpoints, the client initiates the payment using one of the supported [Open Payments](https://openpayments.dev) protocols appropriate to the use case.
 
 <script src="/assets/js/paymentpointer.js"></script>
 <script>

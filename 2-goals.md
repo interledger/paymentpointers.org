@@ -10,7 +10,7 @@ Payment Pointers were designed with very specific goals in mind:
 
 ### Unique and Easily Recognizable
 
-Various standardized and defacto-standardized identifiers are widely used on the Internet today such as email addresses and social media handles. The payment pointer must be obviously unique so that it is not confused with another type of identifier and also so that other identifiers are not assumed to be payment pointers.
+Various standardized and defacto-standardized identifiers are widely used on the Internet today such as email addresses and social media handles. The Payment Pointer must be obviously unique so that it is not confused with another type of identifier and also so that other identifiers are not assumed to be Payment Pointers.
 
 ### Simple Transcription
 
@@ -18,7 +18,7 @@ It should be easy for someone to exchange their payment pointer with a counter-p
 
 ### Flexible
 
-The payment pointer should not be tightly coupled to a specific payment service. It should be possible for any new payment service to leverage payment pointers.
+The payment pointer should not be tightly coupled to a specific payment service. It should be possible for any new payment service to leverage payment pointers by implementing the [Open Payments](https://openpayments.dev) standard.
 
 ### Widely Usable
 

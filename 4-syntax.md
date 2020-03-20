@@ -48,3 +48,9 @@ $example.com/invoices/12345   ->  https://example.com/invoices/12345
 $bob.example.com              ->  https://bob.example.com/.well-known/pay
 $example.com/bob              ->  https://example.com/bob
 ```
+
+### Requirements
+
+Payment Pointers MUST resolve to an https URL as defined in [RFC7230](https://tools.ietf.org/html/rfc7230#section-2.7.2). It MUST accept HTTP GET requests to initiate the payment.
+
+Clients MUST support HTTP redirects as a result of `3XX` responses per [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4).
