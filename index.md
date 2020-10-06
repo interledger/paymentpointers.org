@@ -34,11 +34,9 @@ Payment Pointers don't contain query strings or fragments, however [Open Payment
 
 ### Flow
 
-When making or a receiving a payment, a user passes a Payment Pointer to the counter-party who resolves the corresponding URL.
+When making or a receiving a payment, a user passes a Payment Pointer to the counter-party who decodes it to the corresponding URL.
 
-For most use cases the counter-party will extract the origin from the URL and append the path `/.well-known/open-payments` to form the URL of the [Open Payments](https://openpayments.dev) server meta-data endpoint.
-
-To avoid unnecessary network requests when doing [Web Monetization](https://webmonetization.org) the client skips this step and uses the Payment Pointer URL as the Web Monetization endpoint. 
+That URL represents an account at a wallet and the client begins an interaction with the wallet using the [Open Payments](https://docs.openpayments.dev) protocol.
 
 [More details...](/flow)
 
