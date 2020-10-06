@@ -51,6 +51,8 @@ $example.com/bob              ->  https://example.com/bob
 
 ### Requirements
 
-Payment Pointers MUST resolve to an https URL as defined in [RFC7230](https://tools.ietf.org/html/rfc7230#section-2.7.2). It MUST accept HTTP GET requests to initiate the payment.
+Payment Pointers MUST resolve to an https URL as defined in [RFC7230](https://tools.ietf.org/html/rfc7230#section-2.7.2).
 
-Clients MUST support HTTP redirects as a result of `3XX` responses per [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4).
+Clients MUST support HTTP redirects as a result of `3XX` responses per [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4) however these MUST always redirect to a secure (https) URL.
+
+Servers SHOULD be cautious with the use of permanent (301/308) redirect response codes as clients may stop querying the original Payment Pointer and always query the new URL for future payments.
