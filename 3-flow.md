@@ -14,11 +14,7 @@ This is analogous to how a user may provide a credit card number to a merchant t
 
 ### Step 1: Resolve Open Payments Server Meta-Data URL
 
-The first step the client performs is to resolve the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax-resolution) defined in this specification.
-
-To discover the Open Payments service endpoints for interacting with the account, the client extracts the origin from the Payment Pointer URL and appends the path `/.well-known/open-payments` to get the server meta-data document URL. 
-
-If the client is attempting to send an unsolicited payment to the owner of the Payment Pointer (e.g. when sending Web Monetization payments) they may skip fetching the Open Payments server meta-data and immediately fetch STREAM credentials to make the payment from the Payment Pointer URL. 
+The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax-resolution) defined in this specification.
 
 <div class="mx-auto d-flex" style="flex: 1 100%; flex-wrap: wrap">
   <div class="d-flex" style="flex: 1 auto;">
@@ -36,14 +32,14 @@ If the client is attempting to send an unsolicited payment to the owner of the P
 
 ### Step 2: Discover Open Payments Endpoints
 
-The client then uses the HTTP protocol to query the resolved **Open Payments server meta-data** URL and discover the Open Payments services endpoints.
+The client then uses the HTTP protocol to query the resolved **Open Payments account** URL and [discover](https://docs.openpayments.dev/discovery) the Open Payments services endpoints.
 
 The resolved endpoint MAY redirect the client to another URL but the client MUST ensure it affords the sender an opportunity to verify both the originally resolved and ultimate endpoint hosts.
 
 #### Example:
 
 ```http
-GET /.well-known/open-payments HTTP/1.1
+GET /.well-known/pay HTTP/1.1
 Host: alice.wallet.example
 Accept: application/json
 ```
