@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Name Space
+title: Namespace for RDF
 permalink: /ns
 nav_order: 7
 ---
