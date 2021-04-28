@@ -6,7 +6,7 @@ nav_order: 7
 ---
 ## PaymentPointer
 
-Use `http://paymentpointers.org/ns#PaymentPointer` as the predicate when linking a WebId to a Payment Pointer. Make sure this triple lives in the profile document to which the WebID dereferences. Example:
+Use `http://paymentpointers.org/ns#PaymentPointer` as the predicate when linking a WebID to a Payment Pointer. Make sure this triple lives in the profile document to which the WebID dereferences. Example:
 
 ```ttl
 @prefix pp: <http://paymentpointers.org/ns#>.
