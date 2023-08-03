@@ -1,17 +1,10 @@
-# Starlight Starter Kit: Basics
+# Payment Pointers
 
-```
-npm create astro@latest -- --template starlight
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/starlight/tree/main/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/starlight/tree/main/examples/basics)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+This is the source code for the website hosted at [paymentpointers.org](https://paymentpointers.org). It is built with [Starlight](https://starlight.astro.build/getting-started/), a documentation framework based on [Astro](https://astro.build/). The RFC for payment pointers can be found [here](https://github.com/interledger/rfcs/blob/master/0026-payment-pointers/0026-payment-pointers.md).
 
 ## 🚀 Project Structure
 
-Inside of your Astro + Starlight project, you'll see the following folders and files:
+Inside this project, you'll see the following folders and files:
 
 ```
 .
@@ -45,6 +38,8 @@ All commands are run from the root of the project, from a terminal:
 | `npm run preview`         | Preview your build locally, before deploying     |
 | `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+You can substitute the `npm` commands with whatever package manager of your choice uses.
 
 ## 👀 Want to learn more?
 
