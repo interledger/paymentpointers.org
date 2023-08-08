@@ -1,0 +1,59 @@
+---
+import Search from "@astrojs/starlight/components/Search.astro";
+import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
+import SiteTitle from '@astrojs/starlight/components/SiteTitle.astro';
+import SocialIcons from '@astrojs/starlight/components/SocialIcons.astro';
+
+const { locale } = Astro.props;
+---
+<div class="header flex">
+  <SiteTitle {locale} />
+  <div class="secondary-wrap">
+    <Search {locale} />
+    <div class="hidden selects md:flex">
+      <SocialIcons />
+      <ThemeSelect {locale} />
+    </div>
+  </div>
+</div>
+
+<style>
+  .header { 
+    gap: var(--sl-nav-gap);
+    align-items: center;
+    height: 100%;
+  }
+
+  a {
+    text-decoration: none;
+    color: var(--sl-color-text);
+  }
+
+  .secondary-wrap {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: var(--sl-nav-gap);
+  }
+
+  .selects {
+    display: flex;
+    gap: var(--sl-nav-gap);
+    align-items: center;
+  }
+
+  .site-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+  }
+
+  .site-logo img {
+    width: 2.5em;
+  }
+
+  .site-logo span {
+    font-size: larger;
+    white-space: nowrap;
+  }
+</style>

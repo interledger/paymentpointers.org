@@ -1,0 +1,168 @@
+:root,
+::backdrop {
+  /* Colors (dark mode) */
+  --sl-hue-accent: 327;
+  --sl-color-accent-low: hsl(var(--sl-hue-accent), 60%, 15%); /* darkest */
+  --sl-color-accent: hsl(var(--sl-hue-accent), 90%, 60%);
+  --sl-color-accent-high: hsl(var(--sl-hue-accent), 100%, 87%); /* lightest */
+  --color-accent-mid: hsl(324, 100%, 44%);
+  --color-accent-secondary: hsl(176, 92%, 25%);
+
+  /* Text size and line height */
+  --step--2: clamp(0.79rem, calc(0.76rem + 0.12vw), 0.87rem);
+  --step--1: clamp(0.89rem, calc(0.84rem + 0.23vw), 1.04rem);
+  --step-0: clamp(1rem, calc(0.92rem + 0.37vw), 1.25rem);
+  --step-1: clamp(1.13rem, calc(1rem + 0.56vw), 1.5rem);
+  --step-2: clamp(1.27rem, calc(1.09rem + 0.79vw), 1.8rem);
+  --step-3: clamp(1.42rem, calc(1.18rem + 1.09vw), 2.16rem);
+  --step-4: clamp(1.6rem, calc(1.27rem + 1.47vw), 2.59rem);
+  --step-5: clamp(1.8rem, calc(1.37rem + 1.94vw), 3.11rem);
+  --space-3xs: clamp(0.25rem, calc(0.23rem + 0.09vw), 0.31rem);
+  --space-2xs: clamp(0.5rem, calc(0.46rem + 0.19vw), 0.63rem);
+  --space-xs: clamp(0.75rem, calc(0.69rem + 0.28vw), 0.94rem);
+  --space-s: clamp(1rem, calc(0.92rem + 0.37vw), 1.25rem);
+  --space-m: clamp(1.5rem, calc(1.38rem + 0.56vw), 1.88rem);
+  --space-l: clamp(2rem, calc(1.83rem + 0.74vw), 2.5rem);
+  --space-xl: clamp(3rem, calc(2.75rem + 1.11vw), 3.75rem);
+  --space-2xl: clamp(4rem, calc(3.67rem + 1.48vw), 5rem);
+  --space-3xl: clamp(6rem, calc(5.5rem + 2.22vw), 7.5rem);
+
+  --sl-text-body: var(--step-0);
+  --sl-text-body-sm: var(--step--1);
+  --sl-text-code: var(--step--1);
+  --sl-text-code-sm: var(--step--1);
+  --sl-text-h1: var(--step-3);
+  --sl-text-h2: var(--step-2);
+  --sl-text-h3: var(--step-1);
+  --sl-text-h4: var(--step-1);
+  --sl-text-h5: var(--step-1);
+
+  --sl-line-height: 1.5;
+  --sl-line-height-headings: 1.2;
+
+  --sl-nav-pad-x: var(--space-s);
+
+  --border-radius: 6px;
+}
+
+:root[data-theme="light"],
+[data-theme="light"] ::backdrop {
+  /* Colours (light mode) */
+  --sl-color-accent-high: hsl(var(--sl-hue-accent), 80%, 30%); /* darkest */
+  --sl-color-accent: hsl(var(--sl-hue-accent), 100%, 40%);
+  --sl-color-accent-low: hsl(var(--sl-hue-accent), 100%, 97%); /* lightest */
+  --color-accent-mid: hsl(324, 100%, 44%);
+  --color-accent-secondary: hsl(165, 90%, 78%);
+}
+
+:focus-visible {
+  outline-color: var(--color-accent-mid);
+  border-radius: var(--border-radius);
+}
+
+.main-frame {
+  font-size: var(--sl-text-body);
+}
+
+.container > h1:first-of-type {
+  width: max-content;
+}
+
+.container > h1:first-of-type::after {
+  background-color: var(--color-accent-secondary);
+  height: 12px;
+  top: -12px;
+  z-index: -1;
+  position: relative;
+  display: block;
+  width: calc(100% + 1em);
+  content: "";
+}
+
+.content-panel + .content-panel {
+  border-top: 0;
+}
+
+.content.content
+  :not(a, strong, em, del, span, input, label)
+  + :not(a, strong, em, del, span, input, label :where(.not-content *)) {
+  margin-top: var(--space-s);
+}
+
+.content.content li > ul,
+.content.content li + li:not(:where(.not-content *)) {
+  margin-top: var(--space-2xs);
+}
+
+.pagination-links a {
+  border: 0;
+  box-shadow: initial;
+  border-radius: var(--border-radius);
+}
+
+.pagination-links a > span {
+  color: var(--sl-color-text-accent);
+  font-size: var(--sl-text-body-sm);
+  font-weight: 600;
+}
+
+.pagination-links a .link-title {
+  font-size: var(--sl-text-body);
+  font-weight: 400;
+  transition: color 200ms ease-out;
+}
+
+.pagination-links a:hover .link-title,
+.pagination-links a:focus .link-title {
+  color: var(--sl-color-text-accent);
+  text-decoration: underline;
+}
+
+label {
+  font-size: var(--sl-text-body-sm);
+}
+
+input:not([type="submit"]):not([type="file"]) {
+  border: 1px solid var(--color-accent-mid);
+  padding: var(--space-3xs) var(--space-2xs);
+  border-radius: var(--border-radius);
+  margin-top: var(--space-3xs);
+}
+
+input:not([type="submit"]):not([type="file"]):focus {
+  background-color: var(--sl-color-accent-low);
+}
+
+.sidebar-content .sidebar {
+  padding: 0;
+}
+
+.sidebar-content .sidebar ul {
+  --sl-sidebar-item-padding-inline: var(--space-s);
+}
+
+.sidebar-content .sidebar li {
+  margin: 0;
+}
+
+.sidebar-content .sidebar a {
+  padding: var(--space-2xs) var(--sl-sidebar-item-padding-inline);
+}
+
+.sidebar-content .sidebar a[aria-current="page"],
+.sidebar-content .sidebar a[aria-current="page"]:hover,
+.sidebar-content .sidebar a[aria-current="page"]:focus {
+  color: var(--sl-color-text-accent);
+  background-color: var(--sl-color-accent-low);
+}
+
+.right-sidebar-panel starlight-toc h2 {
+  font-size: var(--step-0);
+}
+
+.right-sidebar-panel starlight-toc a[aria-current="true"],
+.right-sidebar-panel starlight-toc a[aria-current="true"]:hover,
+.right-sidebar-panel starlight-toc a[aria-current="true"]:focus {
+  color: var(--sl-color-text-accent);
+  background-color: initial;
+}
