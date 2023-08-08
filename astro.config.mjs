@@ -1,10 +1,13 @@
 import { defineConfig } from "astro/config";
 import starlight from "@astrojs/starlight";
 
+import overrideIntegration from "./src/overrideIntegration.mjs";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://paymentpointers.org",
   integrations: [
+    overrideIntegration(),
     starlight({
       title: "Payment Pointers",
       social: {
@@ -19,6 +22,7 @@ export default defineConfig({
         { label: "Security Considerations", link: "/security" },
         { label: "About", link: "/about" },
       ],
+      customCss: ["./src/styles/ilf-theme.css"],
     }),
   ],
 
