@@ -12,11 +12,11 @@ A Payment Pointer resolves to a URL (with the https scheme) that can be used to 
   <div class="input-wrapper">
     <label class="payment-pointer">
       <p>Payment Pointer</p>
-      <input id="pp-input" value="$alice.wallet.example" />
+      <input id="pp-input" value="$alice.wallet.example" placeholder="$alice.wallet.example" />
     </label>
     <label class="url">
       <p>URL</p>
-      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" />
+      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" readonly />
     </label>
   </div>
   <p id="error" class="error-msg"></p>
@@ -162,8 +162,9 @@ That URL represents an account at a wallet and the client begins an interaction 
     flex: 2 1 0;
     margin-top: 0;
   }
-  .error-msg.error-msg {
-    margin-top: 0;
-    color: maroon;
+  .pp-converter .error-msg.error-msg {
+    margin-top: var(--space-3xs);
+    color: firebrick;
+    font-size: var(--step--1);
   }
 </style>
