@@ -10,17 +10,17 @@ This is analogous to how a user may provide a credit card number to a merchant t
 
 ## Step 1: Resolve Open Payments Server Meta-Data URL
 
-The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax-resolution) defined in this specification.
+The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax#resolution) defined in this specification.
 
 <div class="pp-converter">
   <div class="input-wrapper">
     <label class="payment-pointer">
       <p>Payment Pointer</p>
-      <input id="pp-input" value="$alice.wallet.example" />
+      <input id="pp-input" value="$alice.wallet.example" placeholder="$alice.wallet.example" />
     </label>
     <label class="url">
       <p>URL</p>
-      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" />
+      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" readonly />
     </label>
   </div>
   <p id="error" class="error-msg"></p>
@@ -168,8 +168,9 @@ Having discovered the available endpoints, the client initiates the payment usin
     flex: 2 1 0;
     margin-top: 0;
   }
-  .error-msg.error-msg {
-    margin-top: 0;
-    color: maroon;
+  .pp-converter .error-msg.error-msg {
+    margin-top: var(--space-3xs);
+    color: firebrick;
+    font-size: var(--step--1);
   }
 </style>
