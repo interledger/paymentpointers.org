@@ -130,7 +130,7 @@ th {
   text-align: left;
 }
 
-tr:first-of-type th {
+thead tr:first-of-type th {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
 }
@@ -142,17 +142,49 @@ pre,
   box-shadow: var(--sl-shadow-sm);
 }
 
+.content thead + tbody tr:nth-child(2n):not(:where(.not-content *)) {
+  background-color: var(--sl-color-gray-7, var(--sl-color-gray-6));
+}
+
+.content thead + tbody tr:nth-child(2n + 1):not(:where(.not-content *)) {
+  background-color: initial;
+}
+
+.content tr:nth-child(2n):not(:where(.not-content *)) {
+  background-color: initial;
+}
+
+.content tr:nth-child(2n + 1):not(:where(.not-content *)) {
+  background-color: var(--sl-color-gray-7, var(--sl-color-gray-6));
+}
+
 .content :is(th, td):not(:where(.not-content *)) {
   border: 0;
   padding: var(--space-2xs) var(--space-xs);
 }
 
-.content.content pre:not(:where(.not-content *)) {
-  border: 0;
-  padding: var(--space-xs);
+.content tbody tr:first-of-type:not(:where(.not-content *)) th:first-child,
+.content tbody tr:first-of-type:not(:where(.not-content *)) td:first-child {
+  border-top-left-radius: var(--border-radius);
 }
 
-aside.starlight-aside {
+.content tbody tr:first-of-type:not(:where(.not-content *)) th:last-child,
+.content tbody tr:first-of-type:not(:where(.not-content *)) td:last-child {
+  border-top-right-radius: var(--border-radius);
+}
+
+.content tbody tr:last-of-type:not(:where(.not-content *)) th:first-child,
+.content tbody tr:last-of-type:not(:where(.not-content *)) td:first-child {
+  border-bottom-left-radius: var(--border-radius);
+}
+
+.content tbody tr:last-of-type:not(:where(.not-content *)) th:last-child,
+.content tbody tr:last-of-type:not(:where(.not-content *)) td:last-child {
+  border-bottom-right-radius: var(--border-radius);
+}
+
+.content.content pre:not(:where(.not-content *)) {
+  border: 0;
   padding: var(--space-xs);
 }
 
@@ -171,9 +203,8 @@ input:not([type="submit"]):not([type="file"]):focus {
   background-color: var(--sl-color-accent-low);
 }
 
-::placeholder {
-  color: var(--color-accent-mid);
-  opacity: 0.6;
+aside.starlight-aside {
+  padding: var(--space-xs);
 }
 
 .pagination-links {
