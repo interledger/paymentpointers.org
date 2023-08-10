@@ -121,6 +121,17 @@
   margin-top: var(--space-2xs);
 }
 
+table,
+pre,
+.starlight-aside {
+  border-radius: var(--border-radius);
+  box-shadow: var(--sl-shadow-sm);
+}
+
+code {
+  border-radius: var(--border-radius);
+}
+
 .content.content table {
   display: table;
   width: 100%;
@@ -133,13 +144,6 @@ th {
 thead tr:first-of-type th {
   border-top-left-radius: var(--border-radius);
   border-top-right-radius: var(--border-radius);
-}
-
-table,
-pre,
-.starlight-aside--note {
-  border-radius: var(--border-radius);
-  box-shadow: var(--sl-shadow-sm);
 }
 
 .content thead + tbody tr:nth-child(2n):not(:where(.not-content *)) {
