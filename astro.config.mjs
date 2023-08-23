@@ -22,7 +22,7 @@ export default defineConfig({
         { label: "Security Considerations", link: "/security" },
         { label: "About", link: "/about" },
       ],
-      customCss: ["./src/styles/ilf-theme.css"],
+      customCss: ["./src/styles/ilf-docs.css"],
     }),
   ],
 
