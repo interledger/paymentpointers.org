@@ -12,7 +12,7 @@ This is analogous to how a user may provide a credit card number to a merchant t
 
 The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax#resolution) defined in this specification.
 
-<div class="pp-converter">
+<div class="pp-converter not-content">
   <div class="input-wrapper">
     <label class="payment-pointer">
       <p>Payment Pointer</p>
