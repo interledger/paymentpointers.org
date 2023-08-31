@@ -8,7 +8,7 @@ title: Payment Pointers
 
 A Payment Pointer resolves to a URL (with the https scheme) that can be used to discover the [Open Payments](https://openpayments.dev) endpoints for interacting with the account. Using the [Open Payments](https://openpayments.dev) protocol the counter-party can initiate a payment to or from the owner of the Payment Pointer.
 
-<div class="pp-converter">
+<div class="pp-converter not-content">
   <div class="input-wrapper">
     <label class="payment-pointer">
       <p>Payment Pointer</p>
