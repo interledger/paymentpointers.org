@@ -48,6 +48,10 @@
 :root[data-theme="light"],
 [data-theme="light"] ::backdrop {
   /* Colours (light mode) */
+  --sl-color-orange-low: hsl(var(--sl-hue-orange), 90%, 94%); /* lightest */
+  --sl-color-blue-low: hsl(var(--sl-hue-blue), 88%, 96%); /* lightest */
+  --sl-color-purple-low: hsl(var(--sl-hue-purple), 80%, 96%); /* lightest */
+  --sl-color-red-low: hsl(var(--sl-hue-red), 80%, 96%); /* lightest */
   --sl-color-accent-high: hsl(var(--sl-hue-accent), 80%, 30%); /* darkest */
   --sl-color-accent: hsl(var(--sl-hue-accent), 100%, 40%);
   --sl-color-accent-low: hsl(var(--sl-hue-accent), 100%, 97%); /* lightest */
@@ -109,6 +113,7 @@
   nav.sidebar .sidebar-pane {
     background-color: initial;
     border-inline-end: 0;
+    z-index: 0;
   }
 
   .sidebar-content .sidebar {
@@ -153,7 +158,7 @@
 
 /* Very large screen size handling styles */
 @media (min-width: 80rem) {
-  div.page.page {
+  .page.page {
     flex-direction: row;
     max-width: 95rem;
     margin-left: auto;
@@ -168,9 +173,10 @@
 
   nav.sidebar .sidebar-pane {
     position: sticky;
+    height: 100vh;
   }
 
-  div.main-frame.main-frame {
+  .main-frame.main-frame {
     padding-inline-start: initial;
     flex: 1;
   }
@@ -245,6 +251,7 @@ h3::after {
 /* Rounded corners and shadow flair */
 table,
 pre,
+img,
 .starlight-aside {
   border-radius: var(--border-radius);
   box-shadow: var(--sl-shadow-sm);
@@ -252,6 +259,10 @@ pre,
 
 code {
   border-radius: var(--border-radius);
+}
+
+img {
+  border: 1px solid var(--sl-color-hairline-light);
 }
 
 /* Tab style overrides */
