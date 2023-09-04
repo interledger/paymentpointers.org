@@ -10,7 +10,6 @@ Inside this project, you'll see the following folders and files:
 .
 ├── public/
 ├── src/
-│   ├── assets/
 │   ├── content/
 │   │   ├── docs/
 │   │   └── config.ts
@@ -22,25 +21,31 @@ Inside this project, you'll see the following folders and files:
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
-Images can be added to `src/assets/` and embedded in Markdown with a relative link.
+Static assets, like favicons or images, can be placed in the `public/` directory.
 
-Static assets, like favicons, can be placed in the `public/` directory.
+## Local development
 
-## 🧞 Commands
+We are using [Bun](https://bun.sh/) in this repository, but you could theoretically use the package manager of your choice. To install Bun, run
+
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+
+### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
 
 | Command                   | Action                                           |
 | :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run start`           | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+| `bun install`             | Installs dependencies                            |
+| `bun run start`           | Starts local dev server at `localhost:1102`      |
+| `bun run build`           | Build your production site to `./dist/`          |
+| `bun run preview`         | Preview your build locally, before deploying     |
+| `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `bun run astro -- --help` | Get help using the Astro CLI                     |
 
-You can substitute the `npm` commands with whatever package manager of your choice uses.
+You can substitute the `bun` commands with whatever package manager of your choice uses.
 
-## 👀 Want to learn more?
+### 👀 Want to learn more?
 
 Check out [Starlight’s docs](https://starlight.astro.build/), read [the Astro documentation](https://docs.astro.build), or jump into the [Astro Discord server](https://astro.build/chat).
