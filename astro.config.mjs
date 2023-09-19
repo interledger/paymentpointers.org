@@ -10,6 +10,10 @@ export default defineConfig({
     overrideIntegration(),
     starlight({
       title: "Payment Pointers",
+      customCss: [
+        "./node_modules/@interledger/docs-design-system/src/styles/green-theme.css",
+        "./node_modules/@interledger/docs-design-system/src/styles/ilf-docs.css",
+      ],
       social: {
         github: "https://github.com/interledger/paymentpointers.org",
       },
@@ -22,7 +26,6 @@ export default defineConfig({
         { label: "Security Considerations", link: "/security" },
         { label: "About", link: "/about" },
       ],
-      customCss: ["./src/styles/ilf-docs.css"],
     }),
   ],
 
