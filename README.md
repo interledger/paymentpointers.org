@@ -10,6 +10,7 @@ Inside this project, you'll see the following folders and files:
 .
 ├── public/
 ├── src/
+│   ├── components/
 │   ├── content/
 │   │   ├── docs/
 │   │   └── config.ts
@@ -21,7 +22,11 @@ Inside this project, you'll see the following folders and files:
 
 Starlight looks for `.md` or `.mdx` files in the `src/content/docs/` directory. Each file is exposed as a route based on its file name.
 
-Static assets, like favicons or images, can be placed in the `public/` directory.
+Static assets, like favicons or images, can be placed in the `public/` directory. When referencing these assets in your markdown, you do not have to include `public/` in the file path, so an image would have a path like:
+
+```md
+![A lovely description of your beautiful image](/img/YOUR_BEAUTIFUL_IMAGE.png)
+```
 
 ## Local development
 
