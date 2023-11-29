@@ -8,9 +8,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/starlight": "^0.11.2",
-    "@interledger/docs-design-system": "^0.1.2",
-    "astro": "latest",
+    "@astrojs/starlight": "^0.13.1",
+    "@interledger/docs-design-system": "^0.1.3",
+    "astro": "^3.6.3",
     "sharp": "^0.32.6"
   }
 }

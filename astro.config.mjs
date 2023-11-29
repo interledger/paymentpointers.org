@@ -16,6 +16,12 @@ export default defineConfig({
       components: {
         Header: "./src/components/Header.astro",
       },
+      expressiveCode: {
+        styleOverrides: {
+          borderColor: "transparent",
+          borderRadius: "var(--border-radius)",
+        },
+      },
       social: {
         github: "https://github.com/interledger/paymentpointers.org",
       },
