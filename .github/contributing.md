@@ -23,7 +23,7 @@ Thank you for contributing to paymentpointers.org :tada: Your contributions are 
 
 ## Types of contributions
 
-You can contribute to Payment pointers in several ways.
+You can contribute to Payment Pointers in several ways.
 
 ### :beetle: Issues
 
@@ -43,7 +43,7 @@ We started to maintain public-facing documentation for Payment Pointers on [paym
 
 ## Working in the Paymentpointers.org repository
 
-You can use any package manager, However, we prefer pnpm. A list of steps for setting up a [local development environment](https://github.com/interledger/paymentpointers.org#local-development) can be found in the Readme.
+You can use any package manager of your choosing. A list of steps for setting up a [local development environment](https://github.com/interledger/paymentpointers.org#local-development) can be found in the README.
 
 ### Labels
 
@@ -54,17 +54,6 @@ We use labels to communicate the intention of issues and PRs.
 - `triage` issues that the core team needs to assign labels to.
 
 Some labels will be automatically assigned to PRs.
-
-### Language
-
-[Typescript](https://www.staging-typescript.org/) is the chosen language.
-
-```shell
-./tsconfig.json # config
-```
-
-Typescript config at the root is intended to be a base config that should be extended by
-each package to suit the package's requirements.
 
 ### CI
 
