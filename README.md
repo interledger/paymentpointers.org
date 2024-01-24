@@ -2,6 +2,10 @@
 
 This is the source code for the website hosted at [paymentpointers.org](https://paymentpointers.org). It is built with [Starlight](https://starlight.astro.build/getting-started/), a documentation framework based on [Astro](https://astro.build/). The RFC for payment pointers can be found [here](https://github.com/interledger/rfcs/blob/master/0026-payment-pointers/0026-payment-pointers.md).
 
+## Contributing
+
+Please read the [contribution guidelines](.github/contributing.md) before submitting contributions. All contributions must adhere to our [code of conduct](.github/code_of_conduct.md).
+
 ## 🚀 Project Structure
 
 Inside this project, you'll see the following folders and files:
