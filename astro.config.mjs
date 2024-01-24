@@ -12,6 +12,7 @@ export default defineConfig({
       customCss: [
         "./node_modules/@interledger/docs-design-system/src/styles/green-theme.css",
         "./node_modules/@interledger/docs-design-system/src/styles/ilf-docs.css",
+        "./src/styles/paymentpointers.css",
       ],
       components: {
         Header: "./src/components/Header.astro",
