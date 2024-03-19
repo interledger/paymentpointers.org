@@ -1,6 +1,0 @@
-/* Override for sidebar height causing weird positioning */
-@media screen and (min-width: 80rem) {
-  nav.sidebar .sidebar-pane {
-    height: initial;
-  }
-}

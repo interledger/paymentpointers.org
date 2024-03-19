@@ -10,9 +10,8 @@ export default defineConfig({
       description:
         "Payment Pointers are a standardized identifier for payment accounts. In the same way that an email address provides an identifier for a mailbox in the email ecosystem a payment pointer is used by an account holder to share the details of their account with a counter-party.",
       customCss: [
-        "./node_modules/@interledger/docs-design-system/src/styles/green-theme.css",
+        "./node_modules/@interledger/docs-design-system/src/styles/teal-theme.css",
         "./node_modules/@interledger/docs-design-system/src/styles/ilf-docs.css",
-        "./src/styles/paymentpointers.css",
       ],
       components: {
         Header: "./src/components/Header.astro",
