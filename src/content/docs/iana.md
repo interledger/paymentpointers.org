@@ -2,7 +2,7 @@
 title: IANA Considerations
 ---
 
-### Well-Known URI
+## Well-Known URI
 
 This specification registers a new well-known URI.
 
