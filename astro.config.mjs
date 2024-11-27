@@ -17,6 +17,7 @@ export default defineConfig({
       plugins: [starlightLinksValidator()],
       components: {
         Header: "./src/components/Header.astro",
+        PageSidebar: './src/components/PageSidebar.astro'
       },
       expressiveCode: {
         styleOverrides: {
