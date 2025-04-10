@@ -1,17 +1,16 @@
 ---
-import type { Props } from '@astrojs/starlight/props';
 import SiteTitle from "@astrojs/starlight/components/SiteTitle.astro";
 import Search from "@astrojs/starlight/components/Search.astro";
 import ThemeSelect from "@astrojs/starlight/components/ThemeSelect.astro";
 import SocialIcons from "@astrojs/starlight/components/SocialIcons.astro";
 ---
 <div class="header sl-flex">
-  <SiteTitle {...Astro.props} />
+  <SiteTitle />
   <div class="secondary-wrap">
-    <Search {...Astro.props} />
-    <SocialIcons {...Astro.props} />
+    <Search />
+    <SocialIcons />
     <div class="sl-hidden md:sl-flex">
-      <ThemeSelect {...Astro.props} />
+      <ThemeSelect />
     </div>
   </div>
 </div>
