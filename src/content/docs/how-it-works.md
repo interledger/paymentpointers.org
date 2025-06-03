@@ -1,16 +1,22 @@
 ---
-title: Flow
+title: How it works
 ---
 
-When a user wishes to make or receive a payment, and is engaging with a counter-party that is able to process Payment Pointers, it provides a Payment Pointer to the counter-party.
+A payment service endpoint provides the information that's necessary for interacting with a payment pointer's underlying payment account. Payment service endpoints **MUST** accept HTTP GET requests and be identifiable by an HTTPS URI as defined in <a href="https://datatracker.ietf.org/doc/html/rfc7230" target="_blank">RFC7230</a>.
 
-The counter-party's client then uses this Payment Pointer as described below to discover the services and accounts linked to the Payment Pointer and interact with these to send or request a payment.
+:::note
+In addition to payment service endpoint requirements, you should familiarize yourself with the [syntax and resolution](/syntax) requirements of payment pointers.
+:::
 
-This is analogous to how a user may provide a credit card number to a merchant to make a payment online, or provide their bank account details to a payer to receive a payment. However, in the case of Payment Pointers the pointer and the services are loosely coupled so a variety of service types could be discovered and payments can be both pushed and pulled from the user's account initiated via the same Payment Pointer.
+Payment pointers aren't meant to be tightly coupled to any specific payment service. Individuals and small companies can host their own payment service endpoints at URLs that resolve to payment pointers.
 
-## Step 1: Resolve Open Payments Server Meta-Data URL
+Likewise, payment service providers can host payment service endpoints for multiple entities without the risk of hosting them at endpoint URLs that conflict with their other services. To that end, providers have the option of hosting different endpoints under the same domain and a different path, or at a different sub-domain for each of their users.
 
-The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax#resolution) defined in this specification.
+## Step 1: Resolve server meta-data URL
+
+Let's say you are using a payment app to send a payment to a friend. You enter your friend's payment pointer into the app.
+
+The first step a client (for example, your payment app) must perform is to decode the endpoint URL from the payment pointer using the [rules](/syntax#resolution) defined in this specification.
 
 <div class="pp-converter not-content">
   <div class="input-wrapper">
@@ -26,44 +32,44 @@ The first step the client performs is to decode the **Payment Pointer URL** from
   <p id="error" class="error-msg"></p>
 </div>
 
-## Step 2: Discover Open Payments Endpoints
+## Step 2: Discover endpoints
 
-The client then uses the HTTP protocol to query the resolved **Open Payments account** URL and [discover](https://docs.openpayments.dev/discovery) the Open Payments services endpoints.
+The client then uses the HTTP protocol to query (`GET`) the resolved endpoint URL. The client uses the `Accept` header to express the media types of the protocol messages it supports.
 
-The resolved endpoint MAY redirect the client to another URL but the client MUST ensure it affords the sender an opportunity to verify both the originally resolved and ultimate endpoint hosts.
-
-### Example:
-
-```http
+```http title="Example"
 GET /.well-known/pay HTTP/1.1
 Host: alice.wallet.example
 Accept: application/json
 ```
 
-## Step 3: Initiate Payment
+The response contains details the client needs to discover the payment service endpoints for interacting with the underlying account.
 
-Having discovered the available endpoints, the client initiates the payment using one of the supported [Open Payments](https://openpayments.dev) protocols appropriate to the use case.
+The resolved endpoint **MAY** redirect the client to another URL but the client **MUST** ensure it affords the sender an opportunity to verify both the originally resolved and ultimate endpoint hosts.
+
+## Step 3: Initiate payment
+
+Having discovered the available endpoint, the client initiates the payment using the payment setup protocol appropriate to the use case.
 
 <script>
   function resolveUrl(pointer) {
     if (typeof pointer !== "string") {
-      throw new Error("Payment Pointer must be a string");
+      throw new Error("Payment pointer must be a string");
     }
     if (pointer.charAt(0) !== "$") {
-      throw new Error('Payment Pointer must start with "$"');
+      throw new Error('Payment pointer must start with "$"');
     }
     const url = new URL("https://" + pointer.slice(1));
     if (url.port) {
-      throw new Error("Payment Pointers cannot be defined with a port");
+      throw new Error("Payment pointers cannot be defined with a port");
     }
     if (url.username || url.password) {
-      throw new Error("Payment Pointers cannot be defined with userinfo");
+      throw new Error("Payment pointers cannot be defined with userinfo");
     }
     if (url.search) {
-      throw new Error("Payment Pointers cannot be defined with query parameters");
+      throw new Error("Payment pointers cannot be defined with query parameters");
     }
     if (url.hash) {
-      throw new Error("Payment Pointers cannot be defined with a fragment");
+      throw new Error("Payment pointers cannot be defined with a fragment");
     }
     if (url.pathname === "" || url.pathname === "/") {
       url.pathname = "/.well-known/pay";
@@ -76,33 +82,33 @@ Having discovered the available endpoints, the client initiates the payment usin
     if (u instanceof URL) {
       if (u.protocol !== "https:") {
         throw new Error(
-          'Payment Pointers can only point to URLs with a protocol of "https"'
+          'Payment pointers can only point to URLs with a protocol of "https"'
         );
       }
       if (u.port) {
         throw new Error(
-          "Payment Pointers cannot point to URLs with a custom port"
+          "Payment pointers cannot point to URLs with a custom port"
         );
       }
       if (u.username || u.password) {
         throw new Error(
-          "Payment Pointers cannot point to URLs containing `userinfo`"
+          "Payment pointers cannot point to URLs containing `userinfo`"
         );
       }
       if (u.search) {
         throw new Error(
-          "Payment Pointers cannot point to URLs with query parameters"
+          "Payment pointers cannot point to URLs with query parameters"
         );
       }
       if (u.hash) {
-        throw new Error("Payment Pointers cannot point to URLs with a fragment");
+        throw new Error("Payment pointers cannot point to URLs with a fragment");
       }
       const path = u.pathname.endsWith("/")
         ? u.pathname.slice(0, -1)
         : u.pathname;
       if (path === "") {
         throw new Error(
-          "Payment Pointers cannot point to URLs with an empty path"
+          "Payment pointers cannot point to URLs with an empty path"
         );
       }
       return "$" + u.hostname + (path === "/.well-known/pay" ? "" : path);

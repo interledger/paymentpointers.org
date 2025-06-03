@@ -2,7 +2,9 @@
 title: Syntax and Resolution
 ---
 
-This specification uses the Augmented Backus-Naur Form (ABNF) notation of [RFC2234](https://tools.ietf.org/html/rfc2234) and imports the following rules from [RFC3986](https://tools.ietf.org/html/rfc3986#section-3.3): `host` and `path-abempty`.
+:::note
+This specification uses the Augmented Backus-Naur Form (ABNF) notation of <a href="https://tools.ietf.org/html/rfc2234" target="_blank">RFC2234</a> and imports the `host` and `path-abempty` rules from <a href="https://tools.ietf.org/html/rfc3986#section-3.3" target="_blank">RFC3986</a>.
+:::
 
 The syntax of a payment pointer is:
 
@@ -10,45 +12,36 @@ The syntax of a payment pointer is:
 "$" host path-abempty
 ```
 
-Example: `$example.com/bob`
+For example: `$example.com/bob`
 
 ## ASCII
 
-Note that the character set of a Payment Pointer, as with a valid URL, is limited to a subset of valid ASCII characters.
-
-Further work may be done to define mappings from other character sets that support international characters (similar to the rules for Internationalized Domain Names) however, such mappings are not defined in this specification. Implementations that attempt to interpret a Payment Pointer that contains non-ASCII characters should be aware of the security risks.
+The character set of a payment pointer is limited to a subset of valid ASCII characters. Payment pointers begin with a dollar sign (`$`) to distinguish them from other types of identifiers and to indicate their association with payments. Implementations that attempt to interpret a payment pointer that contains non-ASCII characters should be aware of the security risks.
 
 ## Resolution
 
-Given a payment pointer of the form `"$" host path-abempty` the endpoint URL that it resolves to is:
+Payment pointers **MUST** resolve to an HTTPS URL that conforms to the HTTPS URI scheme as defined in <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-2.7.2" target="_blank">RFC7230</a>.
 
-```
-"https://" host path-abempty
-```
+Given a payment pointer of the form `"$" host path-abempty`, the endpoint URL that it resolves to is: `"https://" host path-abempty`.
 
-If _path-abempty_ is empty or equal to `/` then it is assigned the value `/.well-known/pay`.
-
-Note that this is a restricted profile of the data allowed in a full https URL as defined in [RFC3986](https://tools.ietf.org/html/rfc3986#section-3.3).
-
-The URL syntax supports an _authority_, however the Payment Pointer syntax only supports a _host_ which excludes the _userinfo_ and _port_. The Payment Pointer syntax also excludes the _query_ and _fragment_ parts that are allowed in the URL syntax.
-
-Payment Pointers that do not meet the limited syntax of this profile MUST be considered invalid and should not be used to resolve a URL.
-
-## Examples:
-
-The following payment pointers resolve to the specified endpoint URLs:
-
-```
-$example.com                  ->  https://example.com/.well-known/pay
-$example.com/invoices/12345   ->  https://example.com/invoices/12345
-$bob.example.com              ->  https://bob.example.com/.well-known/pay
-$example.com/bob              ->  https://example.com/bob
+```http title="Examples"
+$example.com/bob → https://example.com/bob
+$example.com/invoices/12345 → https://example.com/invoices/12345
 ```
 
-## Requirements
+If `path-abempty` is empty or equal to `/` (forward slash), then it's assigned a value of `/.well-known/pay`. This is a restricted profile of the data allowed in a full HTTPS URL, as defined in <a href="https://datatracker.ietf.org/doc/html/rfc3986#section-3.3" target="_blank">RFC3986 Section 3.3</a>.
 
-Payment Pointers MUST resolve to an https URL as defined in [RFC7230](https://tools.ietf.org/html/rfc7230#section-2.7.2).
+```http title="Examples"
+$example.com → https://example.com/.well-known/pay
+$bob.example.com  → https://bob.example.com/.well-known/pay
+```
 
-Clients MUST support HTTP redirects as a result of `3XX` responses per [RFC 7231](https://tools.ietf.org/html/rfc7231#section-6.4) however these MUST always redirect to a secure (https) URL.
+There are a number of components that the <a href="https://datatracker.ietf.org/doc/html/rfc3986#section-3" target="_blank">full HTTPS syntax</a> supports, but which the payment pointer syntax does not. The payment pointer syntax only supports the `host` subcomponent.
 
-Servers SHOULD be cautious with the use of permanent (301/308) redirect response codes as clients may stop querying the original Payment Pointer and always query the new URL for future payments.
+Payment pointers that don't meet the limited syntax of this profile must be considered invalid and shouldn't be used to resolve URLs.
+
+## Redirects
+
+Clients **MUST** support HTTP redirects as a result of `3XX` responses per <a href="https://tools.ietf.org/html/rfc7231#section-6.4" target="_blank">RFC 7231</a>. The redirects **MUST** always be to a secure (HTTPS) URL.
+
+Servers **SHOULD** be cautious with the use of permanent (`301`/`308`) redirect response codes as clients may stop querying the original payment pointer and always query the new URL for future payments.
