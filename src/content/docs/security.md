@@ -2,31 +2,26 @@
 title: Security Considerations
 ---
 
-Payment pointers have many of the same security risks as URLs so it follows that the security considerations are the same even though payment pointers do not in and of themselves pose a security threat.
+Payment pointers have many of the same risks as URLs. As such, the security considerations are the same even though payment pointers don't in and of themselves pose a security threat.
 
-However, as payment pointers are used to provide a compact set of instructions for initiation of a payment, care must be taken to properly interpret the data within a payment pointer, to prevent payments being made to the wrong recipient or leaking of sensitive data.
+Payment pointers provide a compact set of instructions for initiation of a payment. As such, take care to properly interpret the data within a payment pointer to prevent leaking sensitive data or making payments to the wrong recipient.
 
-## Reliability and Consistency
+## Reliability and consistency
 
-There is no guarantee that once a Payment Pointer has been used resolve a payment initiation service endpoint, the same service will be hosted at that URI in the future.
+There's no guarantee that once a payment pointer is used to resolve a payment service endpoint that the same endpoint will be posted at that URI in the future.
 
-## Semantic Attacks and Phishing
+The client should always issue a new `GET` request to a payment pointer and not rely on any potentially stored or cached information.
 
-Because Payment Pointers only support a limited profile of the data in a URL, not all of the attacks described in RFC3986 apply to payment pointers.
+## Semantic attacks and phishing
 
-However, it is possible for a malicious actor to construct a payment pointer that appears to point to a trusted receiver but in fact points to a malicious actor. As a result the pointer is constructed that is intended to mislead a human user by appearing to identify one (trusted) naming authority while actually identifying a different authority hidden behind the noise.
+Because payment pointers only support a limited profile of the data in a URL, not all attacks described in the <a href="https://datatracker.ietf.org/doc/html/rfc3986" target="_blank">URI: Generic Syntax</a> specification apply.
 
-As detailed in [RFC7230], the "https" scheme (Section 2.7.2) is intended to prevent (or at least reveal) many of these potential attacks on establishing the authority behind a pointer, provided that the negotiated TLS connection is secured and the client properly verifies that the communicating server's identity matches the target URIs authority component (see [RFC2818]). Correctly implementing such verification can be difficult (see [The Most Dangerous Code in the World](#the-most-dangerous-code-in-the-world-validating-ssl-certificates-in-non-browser-software)).
+It's possible for a malicious actor to construct a payment pointer that appears to point to a trusted recipient but actually points to a malicious actor. As a result, the payment pointer is intended to mislead a human user by appearing to identify one trusted naming authority while identifying a different authority hidden behind the noise.
 
-Payment Initiation Services should take heed of this risk in their design and provide a mechanism for the parties to reliably verify the counter-party's identity.
+As detailed in the _HTTP/1.1: Message Syntax and Routing_ specification, the HTTPS scheme <a href="https://datatracker.ietf.org/doc/html/rfc7230#section-2.7.2" target="_blank">Section 2.7.2</a> is intended to prevent, or at least reveal, many of these potential attacks on establishing the authority behind a payment pointer, provided that the negotiated TLS connection is secured and the client properly verifies that the communicating server’s identity matches the target URIs authority component (see <a href="https://datatracker.ietf.org/doc/html/rfc2818" target="_blank">RFC2818</a>). Correctly implementing such verification can be difficult. See the paper for <a href="https://www.cs.utexas.edu/~shmat/shmat_ccs12.pdf" target="_blank">The Most Dangerous Code In the World</a>.
 
-Agents of a user that is sending to a counter-party using a Payment Pointer MUST provide a way for the party, after processing the Payment Pointer, to verify that the entity they are sending to (or at least the entity hosting the payment initiation service) is who they intended otherwise senders can easily be fooled into sending money to the wrong receiver. An example of such a mechanism is the use of extended validation certificates at the endpoint.
+Payment initiation services should take heed of this risk in their design and provide a mechanism for the parties to reliably verify the counterparty’s identity.
 
-## References
+Agents of a user sending a payment to a counterparty must provide a way for the user, after processing the counterparty's payment pointer, to verify that the counterparty they're sending to (or at least the entity hosting the payment initiation service) is who they intended. Otherwise, users can be fooled into sending money to the wrong recipient. 
 
-### The Most Dangerous Code in the World: Validating SSL Certificates in Non-browser Software
-
-Georgiev, M., Iyengar, S., Jana, S., Anubhai, R., Boneh, D., and V. Shmatikov,
-"The Most Dangerous Code in the World: Validating SSL Certificates in Non-browser Software",
-In Proceedings of the 2012 ACM Conference on Computer and Communications Security (CCS'12), pp. 38-49, October 2012,
-<http://doi.acm.org/10.1145/2382196.2382204>.
+An example of such a mechanism is the use of extended validation certificates at the endpoint.

@@ -8,6 +8,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Payment Pointers",
+      customCss: [
+        './src/styles/custom.css'
+      ],
       description:
         "Payment Pointers are a standardized identifier for payment accounts. In the same way that an email address provides an identifier for a mailbox in the email ecosystem a payment pointer is used by an account holder to share the details of their account with a counter-party.",
         head: [
@@ -40,12 +43,12 @@ export default defineConfig({
         github: "https://github.com/interledger/paymentpointers.org",
       },
       sidebar: [
-        { label: "Explainer", link: "/" },
-        { label: "Design Goals", link: "/goals" },
-        { label: "Flow", link: "/flow" },
-        { label: "Syntax and Resolution", link: "/syntax" },
-        { label: "IANA Considerations", link: "/iana" },
-        { label: "Security Considerations", link: "/security" },
+        { label: "Overview", link: "overview" },
+        { label: "How it works", link: "how-it-works" },
+        { label: "Syntax and resolution", link: "/syntax" },
+        { label: "Security considerations", link: "/security" },
+        { label: "Example implementation - Interledger", link: "/examples/ilp-implementation" },
+        { label: "IANA considerations", link: "/iana" },
         { label: "About", link: "/about" },
       ],
     }),
