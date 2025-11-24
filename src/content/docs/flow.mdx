@@ -12,18 +12,26 @@ This is analogous to how a user may provide a credit card number to a merchant t
 
 The first step the client performs is to decode the **Payment Pointer URL** from the Payment Pointer using the [rules](/syntax#resolution) defined in this specification.
 
-<div class="pp-converter not-content">
-  <div class="input-wrapper">
-    <label class="payment-pointer">
+<div class='pp-converter not-content'>
+  <div class='input-wrapper'>
+    <label class='payment-pointer'>
       <p>Payment Pointer</p>
-      <input id="pp-input" value="$alice.wallet.example" placeholder="$alice.wallet.example" />
+      <input
+        id='pp-input'
+        value='$alice.wallet.example'
+        placeholder='$alice.wallet.example'
+      />
     </label>
-    <label class="url">
+    <label class='url'>
       <p>URL</p>
-      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" readonly />
+      <input
+        id='url-input'
+        value='https://alice.wallet.example/.well-known/pay'
+        readonly
+      />
     </label>
   </div>
-  <p id="error" class="error-msg"></p>
+  <p id='error' class='error-msg'></p>
 </div>
 
 ## Step 2: Discover Open Payments Endpoints
@@ -32,7 +40,7 @@ The client then uses the HTTP protocol to query the resolved **Open Payments acc
 
 The resolved endpoint MAY redirect the client to another URL but the client MUST ensure it affords the sender an opportunity to verify both the originally resolved and ultimate endpoint hosts.
 
-### Example:
+### Example
 
 ```http
 GET /.well-known/pay HTTP/1.1
