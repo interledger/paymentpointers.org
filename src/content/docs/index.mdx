@@ -8,18 +8,26 @@ title: Payment Pointers
 
 A Payment Pointer resolves to a URL (with the https scheme) that can be used to discover the [Open Payments](https://openpayments.dev) endpoints for interacting with the account. Using the [Open Payments](https://openpayments.dev) protocol the counter-party can initiate a payment to or from the owner of the Payment Pointer.
 
-<div class="pp-converter not-content">
-  <div class="input-wrapper">
-    <label class="payment-pointer">
+<div class='pp-converter not-content'>
+  <div class='input-wrapper'>
+    <label class='payment-pointer'>
       <p>Payment Pointer</p>
-      <input id="pp-input" value="$alice.wallet.example" placeholder="$alice.wallet.example" />
+      <input
+        id='pp-input'
+        value='$alice.wallet.example'
+        placeholder='$alice.wallet.example'
+      />
     </label>
-    <label class="url">
+    <label class='url'>
       <p>URL</p>
-      <input id="url-input" value="https://alice.wallet.example/.well-known/pay" readonly />
+      <input
+        id='url-input'
+        value='https://alice.wallet.example/.well-known/pay'
+        readonly
+      />
     </label>
   </div>
-  <p id="error" class="error-msg"></p>
+  <p id='error' class='error-msg'></p>
 </div>
 
 ### Syntax
