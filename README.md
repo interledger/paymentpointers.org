@@ -52,8 +52,19 @@ All commands are run from the root of the project, from a terminal:
 | `bun run preview`         | Preview your build locally, before deploying     |
 | `bun run astro ...`       | Run CLI commands like `astro add`, `astro check` |
 | `bun run astro -- --help` | Get help using the Astro CLI                     |
+| `bun run format`          | Fix linting issues                               |
+| `bun run lint`            | Check linting                                    |
 
 You can substitute the `bun` commands with whatever package manager of your choice uses.
+
+### 🔍 Code Quality
+
+This project uses [Prettier](https://prettier.io/) for formatting and [ESLint](https://eslint.org/) for linting. Before submitting a pull request:
+
+1. **Fix issues**: Run `bun run format` to format files (via Prettier) and apply ESLint autofixes.
+2. **Check before pushing**: Run `bun run lint` to run Prettier in `--check` mode and ESLint without fixes (mirrors CI).
+
+ESLint is configured to work with TypeScript and Astro files. The configuration extends recommended rules from ESLint, TypeScript ESLint, and Astro ESLint plugins.
 
 ### 👀 Want to learn more?
 
