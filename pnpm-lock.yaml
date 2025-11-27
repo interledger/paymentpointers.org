@@ -13,7 +13,7 @@ importers:
         version: 0.36.3(astro@5.16.1(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3))
       '@interledger/docs-design-system':
         specifier: ^0.10.1
-        version: 0.10.2
+        version: 0.10.1
       astro:
         specifier: ^5.16.0
         version: 5.16.1(@types/node@24.10.1)(rollup@4.53.3)(typescript@5.9.3)
@@ -512,8 +512,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@interledger/docs-design-system@0.10.2':
-    resolution: {integrity: sha512-RBwFFhHMYYmhUpstUvxU7Qr7f3O9psViDEJWmKNXbE+6LDxvcDGWDpT9YaPmmZPbHvq8wc0Q9UWZHddLBZwodQ==}
+  '@interledger/docs-design-system@0.10.1':
+    resolution: {integrity: sha512-/nlTob1j+vsKycp9Q39ThZOyztBxNtWEKI0l3jaA+Px8hVzrizRa7ZtaaR4ZuYgoPRWGJPgXTi5tWdG+eiPybw==}
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
@@ -3274,7 +3274,7 @@ snapshots:
   '@img/sharp-win32-x64@0.34.5':
     optional: true
 
-  '@interledger/docs-design-system@0.10.2':
+  '@interledger/docs-design-system@0.10.1':
     dependencies:
       mermaid: 11.12.1
 

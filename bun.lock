@@ -214,7 +214,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.5", "", { "os": "win32", "cpu": "x64" }, "sha512-+29YMsqY2/9eFEiW93eqWnuLcWcufowXewwSNIT6UwZdUUCrM3oFjMWH/Z6/TMmb4hlFenmfAVbpWeup2jryCw=="],
 
-    "@interledger/docs-design-system": ["@interledger/docs-design-system@0.10.2", "", { "dependencies": { "mermaid": "11.12.1" } }, "sha512-RBwFFhHMYYmhUpstUvxU7Qr7f3O9psViDEJWmKNXbE+6LDxvcDGWDpT9YaPmmZPbHvq8wc0Q9UWZHddLBZwodQ=="],
+    "@interledger/docs-design-system": ["@interledger/docs-design-system@0.10.1", "", { "dependencies": { "mermaid": "11.12.1" } }, "sha512-/nlTob1j+vsKycp9Q39ThZOyztBxNtWEKI0l3jaA+Px8hVzrizRa7ZtaaR4ZuYgoPRWGJPgXTi5tWdG+eiPybw=="],
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 
