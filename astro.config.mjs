@@ -17,7 +17,7 @@ export default defineConfig({
           attrs: {
             defer: true,
             'data-website-id': 'cab4fd0a-e2db-4666-a974-5b199f0d6d43',
-            src: 'https://ilf-site-analytics.netlify.app/script.js',
+            src: 'https://uwa.interledger.org/script.js',
             'data-domains': 'paymentpointers.org'
           }
         }
