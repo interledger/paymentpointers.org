@@ -132,7 +132,7 @@ If you already have a payment pointer and need to convert it to its correspondin
 
 ## Brief history
 
-Payment pointers were developed alongside the <a href="https://interledger.org/developers/get-started/" target="_blank">Interledger Protocol</a> stack as a way to express URL endpoints in a user-friendly way. 
+Payment pointers were developed alongside the <a href="https://interledger.org/developers/get-started/" target="_blank">Interledger Protocol</a> stack as a way to express URL endpoints in a user-friendly way.
 
 Interledger's Simple Payment Setup Protocol (SPSP) exchanges the connection details needed to set up an Interledger payment. An SPSP server exposes an HTTPS endpoint that a client can query to get those details. For example, `https://alice.wallet.example/.well-known/pay`.
 

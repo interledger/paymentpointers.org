@@ -2,7 +2,7 @@
 title: Payment Pointers
 template: splash
 hero:
-  tagline: Payment pointers are unique, easily recognizable, and standardized identifers for a payment account. 
+  tagline: Payment pointers are unique, easily recognizable, and standardized identifers for a payment account.
   actions:
     - text: Read the docs
       link: /overview

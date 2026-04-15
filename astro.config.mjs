@@ -9,6 +9,9 @@ export default defineConfig({
   integrations: [
     starlight({
       title: "Payment Pointers",
+      social: [
+        { icon: 'github', label: 'GitHub', href: 'https://github.com/interledger/paymentpointers.org'},
+      ],
       customCss: [
         './src/styles/custom.css'
       ],
@@ -48,12 +51,6 @@ export default defineConfig({
         { label: "Example implementation - Interledger", link: "/examples/ilp-implementation" },
         { label: "IANA considerations", link: "/iana" },
         { label: "About", link: "/about" },
-      social: [
-        {
-          icon: 'github',
-          label: 'GitHub',
-          href: 'https://github.com/interledger/paymentpointers.org'
-        }
       ],
     })
   ],

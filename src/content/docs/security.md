@@ -22,6 +22,6 @@ As detailed in the _HTTP/1.1: Message Syntax and Routing_ specification, the HTT
 
 Payment initiation services should take heed of this risk in their design and provide a mechanism for the parties to reliably verify the counterparty’s identity.
 
-Agents of a user sending a payment to a counterparty must provide a way for the user, after processing the counterparty's payment pointer, to verify that the counterparty they're sending to (or at least the entity hosting the payment initiation service) is who they intended. Otherwise, users can be fooled into sending money to the wrong recipient. 
+Agents of a user sending a payment to a counterparty must provide a way for the user, after processing the counterparty's payment pointer, to verify that the counterparty they're sending to (or at least the entity hosting the payment initiation service) is who they intended. Otherwise, users can be fooled into sending money to the wrong recipient.
 
 An example of such a mechanism is the use of extended validation certificates at the endpoint.

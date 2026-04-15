@@ -30,8 +30,8 @@ curl --request GET \
 
 The SPSP server responds with the following connection details.
 
-* `destination_account` - An ILP address, which provides a way to route ILP packets to their intended destination. ILP addresses aren't meant to be user-facing.
-* `shared_secret` - A shared secret between the app and the SPSP server.
+- `destination_account` - An ILP address, which provides a way to route ILP packets to their intended destination. ILP addresses aren't meant to be user-facing.
+- `shared_secret` - A shared secret between the app and the SPSP server.
 
 ```json title="Example response" wrap
 {
@@ -75,6 +75,6 @@ You can also use `application/spsp4+json` since Open Payments uses Interledger a
   "assetCode": "USD",
   "assetScale": 2,
   "authServer": "https://auth.wallet.example.com",
-  "resourceServer": "https://wallet.example.com",
+  "resourceServer": "https://wallet.example.com"
 }
 ```
