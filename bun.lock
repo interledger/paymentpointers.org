@@ -5,7 +5,7 @@
     "": {
       "dependencies": {
         "@astrojs/starlight": "0.38.3",
-        "@interledger/docs-design-system": "github:interledger/docs-design-system#28aca14",
+        "@interledger/docs-design-system": "0.12.0",
         "astro": "6.1.8",
         "sharp": "^0.34.5",
         "starlight-fullview-mode": "^0.2.6",
@@ -218,7 +218,7 @@
 
     "@img/sharp-win32-x64": ["@img/sharp-win32-x64@0.34.5", "", { "os": "win32", "cpu": "x64" }, "sha512-+29YMsqY2/9eFEiW93eqWnuLcWcufowXewwSNIT6UwZdUUCrM3oFjMWH/Z6/TMmb4hlFenmfAVbpWeup2jryCw=="],
 
-    "@interledger/docs-design-system": ["@interledger/docs-design-system@github:interledger/docs-design-system#28aca14", { "dependencies": { "mermaid": "^11.14.0" } }, "interledger-docs-design-system-28aca14"],
+    "@interledger/docs-design-system": ["@interledger/docs-design-system@0.12.0", "", { "dependencies": { "mermaid": "^11.14.0" } }, "sha512-YCX2zSLMpU2otEogXYFZLE6O5qR482oAxo45MI0j1CRS9kr9aFwg/CtvrKK5EebdMEV9I7r9YiQIbdSwB2vxRA=="],
 
     "@jridgewell/sourcemap-codec": ["@jridgewell/sourcemap-codec@1.5.5", "", {}, "sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og=="],
 

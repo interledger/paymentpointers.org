@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@astrojs/starlight": "0.38.3",
-    "@interledger/docs-design-system": "github:interledger/docs-design-system#28aca14",
+    "@interledger/docs-design-system": "0.12.0",
     "astro": "6.1.8",
     "sharp": "^0.34.5",
     "starlight-fullview-mode": "^0.2.6",
