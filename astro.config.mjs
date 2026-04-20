@@ -26,7 +26,13 @@ export default defineConfig({
         './node_modules/@interledger/docs-design-system/src/styles/teal-theme.css',
         './node_modules/@interledger/docs-design-system/src/styles/ilf-docs.css'
       ],
-      plugins: [starlightLinksValidator(), starlightFullViewMode()],
+      plugins: [
+        starlightLinksValidator(),
+        starlightFullViewMode({
+          leftSidebarEnabled: true,
+          rightSidebarEnabled: true
+        })
+      ],
       components: {
         Header: './src/components/Header.astro',
         PageSidebar: './src/components/PageSidebar.astro'
