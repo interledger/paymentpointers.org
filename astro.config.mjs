@@ -1,11 +1,15 @@
 import { defineConfig } from 'astro/config'
 import starlight from '@astrojs/starlight'
+import { unified } from '@astrojs/markdown-remark'
 import starlightLinksValidator from 'starlight-links-validator'
 import starlightFullViewMode from 'starlight-fullview-mode'
 
 // https://astro.build/config
 export default defineConfig({
   site: 'https://paymentpointers.org',
+  markdown: {
+    processor: unified()
+  },
   integrations: [
     starlight({
       title: 'Payment Pointers',
