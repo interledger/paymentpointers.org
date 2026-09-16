@@ -1,0 +1,21 @@
+
+---
+title: IANA Considerations
+// titulo: IANA Considerations
+---
+
+## Well-Known URI
+// ## URI bien conocida
+
+This specification registers a new well-known URI.
+//Esta especificación registra una nueva URI bien conocida.
+
+URI suffix: "pay"
+// Sufijo de la URI: "pay"
+
+
+Change controller: Interledger Payments Community Group (W3C)
+//Responsable de cambios: Interledger Payments Community Group (W3C)
+
+Specification document(s): This document
+//Documento(s) de especificación: Este documento
