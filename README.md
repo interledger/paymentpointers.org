@@ -40,6 +40,8 @@ We are using [Bun](https://bun.sh/) in this repository, but you could theoretica
 curl -fsSL https://bun.sh/install | bash
 ```
 
+Use Node.js 22.23.4 or later: Astro requires it. On older versions, `bun run start` and `bun run build` stop with an "is not supported by Astro" error. `bun install` doesn't check the Node version, so the error only shows up when you run Astro. The repo sets Node 24 in `.nvmrc`, and CI uses the same file.
+
 ### 🧞 Commands
 
 All commands are run from the root of the project, from a terminal:
