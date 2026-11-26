@@ -7,6 +7,10 @@ import starlightFullViewMode from 'starlight-fullview-mode'
 // https://astro.build/config
 export default defineConfig({
   site: 'https://paymentpointers.org',
+  // Starlight 0.43 no longer sets 'where' for us. Nothing here relies on it
+  // today, but it keeps the behaviour from before Starlight 0.43 and matches
+  // the other docs sites: scoped styles reach child components through `class`.
+  scopedStyleStrategy: 'where',
   markdown: {
     processor: unified()
   },
